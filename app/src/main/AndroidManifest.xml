@@ -19,5 +19,6 @@
         <activity android:name=".UserActivity" />
         <activity android:name=".TermsActivity" />
         <activity android:name=".InstructionsActivity" />
+        <activity android:name=".GameActivity" />
     </application>
 </manifest>

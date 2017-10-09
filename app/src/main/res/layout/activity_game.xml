@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button android:id="@+id/previousButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="previousButton"
+        android:layout_marginTop="3dp"
+        android:textColor="@android:color/black"/>
+
+    <Button android:id="@+id/nextButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="nextButton"
+        android:layout_marginTop="3dp"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/textDisplay"
+        android:layout_width="160dp"
+        android:layout_height="108dp"
+        android:layout_marginBottom="300dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:text=" testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"/>
+
+    <SeekBar
+        android:id="@+id/obsceneBar"
+        android:layout_width="299dp"
+        android:layout_height="19dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="16dp"
+        android:max="3"
+        android:progress="3"
+
+        android:layout_marginBottom="40dp"
+
+        android:layout_marginTop="80dp"
+        />
+
+</RelativeLayout>
