@@ -50,4 +50,12 @@
         android:background="@null"
         android:layout_marginTop="3dp"
         android:textColor="@android:color/black"/>
+
+    <Button android:id="@+id/btn_link_page"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="terms"
+        android:background="@null"
+        android:layout_marginTop="3dp"
+        android:textColor="@android:color/black"/>
 </LinearLayout>

@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText loginInputEmail, loginInputPassword;
     private Button btnlogin;
     private Button btnLinkSignup;
+    private Button btnLinkPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         loginInputPassword = (EditText) findViewById(R.id.login_input_password);
         btnlogin = (Button) findViewById(R.id.btn_login);
         btnLinkSignup = (Button) findViewById(R.id.btn_link_signup);
+        btnLinkPage = (Button) findViewById(R.id.btn_link_page);
         // Progress dialog
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
@@ -52,6 +54,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), RegisterActivity.class);
+                startActivity(i);
+            }
+        });
+
+        btnLinkPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), TermsActivity.class);
                 startActivity(i);
             }
         });
