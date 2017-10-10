@@ -77,11 +77,24 @@ public class RegisterActivity extends AppCompatActivity {
         else
             gender = "Male";
 
-        registerUser(signupInputName.getText().toString(),
-                     signupInputEmail.getText().toString(),
-                     signupInputPassword.getText().toString(),
-                     gender,
-                     signupInputAge.getText().toString());
+        String name = signupInputName.getText().toString();
+        String pass = signupInputPassword.getText().toString();
+        String mail = signupInputEmail.getText().toString();
+        // Launch login activity
+        if (name.equals("") || pass.equals("") || mail.equals("")){
+            Toast.makeText(getApplicationContext(), "Fields cannot be Empty!", Toast.LENGTH_SHORT).show();
+        }else{
+            Intent intent = new Intent(
+                    RegisterActivity.this,
+                    TermsActivity.class);
+            intent.putExtra("username",name );
+            intent.putExtra("password", pass);
+            intent.putExtra("email", mail);
+            startActivity(intent);
+            finish();
+        }
+
+
     }
 
     private void registerUser(final String name,  final String email, final String password,
