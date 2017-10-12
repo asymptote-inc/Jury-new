@@ -97,8 +97,6 @@ public class GameActivity extends AppCompatActivity {
                 // checkedId is the RadioButton selected
                 FragmentTwo fragmentTwo = new FragmentTwo();
                 switch(checkedId) {
-
-
                     case R.id.toxic_radio_btn:
                         // switch to fragment 1
 
