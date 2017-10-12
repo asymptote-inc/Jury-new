@@ -14,6 +14,7 @@ public class InstructionsActivity extends AppCompatActivity {
 
     private Button previous;
     private Button next;
+    private Button sidenav;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,7 @@ public class InstructionsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_instructions);
         previous = (Button) findViewById(R.id.btn_previous);
         next = (Button) findViewById(R.id.btn_next);
+        sidenav = (Button) findViewById(R.id.btn_side);
 
 
         previous.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +37,14 @@ public class InstructionsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), GameActivity.class);
+                startActivity(i);
+            }
+        });
+
+        sidenav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(i);
             }
         });

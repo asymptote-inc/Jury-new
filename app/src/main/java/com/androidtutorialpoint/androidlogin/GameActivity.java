@@ -5,8 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.res.Configuration;
+import android.os.Bundle;
 
 /**
  * Created by sithi on 10/9/2017.
@@ -15,13 +21,10 @@ import android.widget.TextView;
 public class GameActivity extends AppCompatActivity {
 
     private static SeekBar toxicBar;
-    private static SeekBar identityHateBar;
-    private static SeekBar obsceneBar;
-    private static SeekBar insultBar;
-    private static SeekBar threatBar;
     private static TextView questionDisplay;
     private String[] questions;
     private int questionID;
+    private RadioGroup toxicityRadioGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +33,86 @@ public class GameActivity extends AppCompatActivity {
         questionDisplay = (TextView)findViewById(R.id.textDisplay);
 
         questions = new String[]{"What the fuck","Why the fuck","FuckOff"};
+        toxicityRadioGroup = (RadioGroup) findViewById(R.id.toxicity_radio_group);
+
+        // Allows you to interact with Fragments in an Activity
+        FragmentManager fragmentManager = getFragmentManager();
+
+        // beginTransaction() begins the FragmentTransaction which allows you to
+        // add, attach, detach, hide, remove, replace, animate, transition or
+        // show fragments
+        FragmentTransaction fragmentTransaction =
+                fragmentManager.beginTransaction();
+
+        // The Configuration object provides device configuration info
+        // http://developer.android.com/reference/android/content/res/Configuration.html
+        Configuration configInfo = getResources().getConfiguration();
+
+
+        if (toxicityRadioGroup.getCheckedRadioButtonId() == -1)
+        {
+            // no radio buttons are checked,toxic levels step 1
+            // call the button clicked identifier method submitForm()
+            FragmentOne fragmentOne = new FragmentOne();
+
+            fragmentTransaction.replace(android.R.id.content,
+                    fragmentOne);
+
+        }
+        else
+        {
+            // one of the radio buttons is checked,toxic level step 2
+            FragmentTwo fragmentTwo = new FragmentTwo();
+
+            fragmentTransaction.replace(android.R.id.content,
+                    fragmentTwo);
+        }
+
+        // Depending on the screen orientation replace with the correct fragment
+//        if(configInfo.orientation == Configuration.ORIENTATION_LANDSCAPE){
+//
+//            FragmentOne fragmentOne = new FragmentOne();
+//
+//            fragmentTransaction.replace(android.R.id.content,
+//                    fragmentOne);
+//
+//        } else {
+//
+//            FragmentTwo fragmentTwo = new FragmentTwo();
+//
+//            fragmentTransaction.replace(android.R.id.content,
+//                    fragmentTwo);
+//
+//        }
+
+        // Schedule for the replacement of the Fragment as soon as possible
+        fragmentTransaction.commit();
+
+        // setContentView(R.layout.activity_my);
     }
+
+
+    private void submitForm() {
+
+        int selectedId = toxicityRadioGroup.getCheckedRadioButtonId();
+        String toxicityLevel;
+        if(selectedId == R.id.toxic_radio_btn)
+            toxicityLevel = "toxic";
+        if(selectedId == R.id.nottoxic_radio_btn)
+            toxicityLevel = "nottoxic";
+        else
+            toxicityLevel = "somewhattoxic";
+
+//        registerUser(signupInputName.getText().toString(),
+//                signupInputEmail.getText().toString(),
+//                signupInputPassword.getText().toString(),
+//                gender,
+//                signupInputAge.getText().toString());
+    }
+
+
+
+
 
     public void onNextClick(View v){
         if (v.getId()== R.id.nextButton){

@@ -20,5 +20,6 @@
         <activity android:name=".TermsActivity" />
         <activity android:name=".InstructionsActivity" />
         <activity android:name=".GameActivity" />
+        <activity android:name=".MainActivity" />
     </application>
 </manifest>

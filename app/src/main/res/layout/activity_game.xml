@@ -65,41 +65,84 @@
         android:layout_marginStart="31dp"
         android:layout_alignTop="@+id/textDisplay"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true" />1
+    
+    <RelativeLayout
+        android:id="@+id/fr1_id"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/obsceneBar"
+        android:layout_above="@+id/nextButton"></RelativeLayout>
 
-    <RadioButton
-        android:id="@+id/radioButton"
+    <RelativeLayout
+        android:id="@+id/fr2_id"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/obsceneBar"
+        android:layout_above="@+id/nextButton"></RelativeLayout>
+
+    <!--<RadioButton-->
+        <!--android:id="@+id/radioButton"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignLeft="@+id/radioButton2"-->
+        <!--android:layout_alignStart="@+id/radioButton2"-->
+        <!--android:layout_alignTop="@+id/obsceneBar"-->
+        <!--android:layout_marginTop="38dp"-->
+        <!--android:checked="false"-->
+        <!--android:duplicateParentState="true"-->
+        <!--android:text="toxic" />-->
+
+    <!--<RadioButton-->
+        <!--android:id="@+id/radioButton2"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="somewhat toxic"-->
+        <!--android:layout_marginLeft="12dp"-->
+        <!--android:layout_marginStart="12dp"-->
+        <!--android:layout_below="@+id/radioButton"-->
+        <!--android:layout_alignLeft="@+id/obsceneBar"-->
+        <!--android:layout_alignStart="@+id/obsceneBar"-->
+        <!--android:layout_marginTop="17dp" />-->
+
+    <!--<RadioButton-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="not toxic"-->
+        <!--android:layout_below="@+id/radioButton2"-->
+        <!--android:layout_alignLeft="@+id/radioButton2"-->
+        <!--android:layout_alignStart="@+id/radioButton2"-->
+        <!--android:layout_marginTop="25dp"-->
+        <!--android:layout_alignRight="@+id/radioButton2"-->
+        <!--android:layout_alignEnd="@+id/radioButton2" />-->
+
+    <RadioGroup
+        android:id="@+id/toxicity_radio_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/radioButton2"
-        android:layout_alignStart="@+id/radioButton2"
-        android:layout_alignTop="@+id/obsceneBar"
-        android:layout_marginTop="38dp"
-        android:checked="false"
-        android:duplicateParentState="true"
-        android:text="toxic" />
+        android:layout_toRightOf="@+id/gender_textview"
+        android:orientation="vertical">
+        <RadioButton
+            android:id="@+id/toxic_radio_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/toxic"
+            android:checked="true"
+            />
+        <RadioButton
+            android:id="@+id/somewhattoxic_radio_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = "@string/somewhat_toxic"
+            />
 
-    <RadioButton
-        android:id="@+id/radioButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="somewhat toxic"
-        android:layout_marginLeft="12dp"
-        android:layout_marginStart="12dp"
-        android:layout_below="@+id/radioButton"
-        android:layout_alignLeft="@+id/obsceneBar"
-        android:layout_alignStart="@+id/obsceneBar"
-        android:layout_marginTop="17dp" />
+        <RadioButton
+            android:id="@+id/nottoxic_radio_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = "@string/not_toxic"
+            />
+    </RadioGroup>
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="not toxic"
-        android:layout_below="@+id/radioButton2"
-        android:layout_alignLeft="@+id/radioButton2"
-        android:layout_alignStart="@+id/radioButton2"
-        android:layout_marginTop="25dp"
-        android:layout_alignRight="@+id/radioButton2"
-        android:layout_alignEnd="@+id/radioButton2" />
 
 </RelativeLayout>
