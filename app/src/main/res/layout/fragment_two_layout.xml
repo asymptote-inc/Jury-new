@@ -14,33 +14,64 @@
         android:layout_height="wrap_content"
         android:numStars="6"
         android:stepSize="1.0"
-        android:rating="2.0" />
+        android:rating="2.0"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="45dp" />
     <RatingBar
         android:id="@+id/ratingBarObscene"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:numStars="6"
         android:stepSize="1.0"
-        android:rating="2.0" />
+        android:rating="2.0"
+        android:layout_above="@+id/ratingBarInsult"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="20dp" />
     <RatingBar
         android:id="@+id/ratingBarInsult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:numStars="6"
         android:stepSize="1.0"
-        android:rating="2.0" />
+        android:rating="2.0"
+        android:layout_above="@+id/ratingBarThreat"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="24dp" />
     <RatingBar
         android:id="@+id/ratingBarThreat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:numStars="6"
         android:stepSize="1.0"
-        android:rating="2.0" />
+        android:rating="2.0"
+        android:layout_alignBottom="@+id/textView2" />
+
+    <Button android:id="@+id/btn_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_submit"
+        android:background="@null"
+        android:textColor="@android:color/black"
+        android:layout_above="@+id/ratingBarObscene"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp" />
+
+
 
     <TextView
         android:text="@string/fragment_two_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="30dp"/>
+        android:textSize="30dp"
+        android:id="@+id/textView2"
+        android:layout_above="@+id/ratingBarHate"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="14dp" />
 
 </RelativeLayout>
