@@ -13,6 +13,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 
 /**
  * Created by sithi on 10/9/2017.
@@ -41,8 +42,7 @@ public class GameActivity extends AppCompatActivity {
         // beginTransaction() begins the FragmentTransaction which allows you to
         // add, attach, detach, hide, remove, replace, animate, transition or
         // show fragments
-        FragmentTransaction fragmentTransaction =
-                fragmentManager.beginTransaction();
+        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         // The Configuration object provides device configuration info
         // http://developer.android.com/reference/android/content/res/Configuration.html
@@ -68,6 +68,15 @@ public class GameActivity extends AppCompatActivity {
                     fragmentTwo);
         }
 
+
+
+//        toxicityRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+//        {
+//            public void onCheckedChanged(RadioGroup group, int checkedId) {
+//               submitForm();
+//
+//            }
+//        });
         // Depending on the screen orientation replace with the correct fragment
 //        if(configInfo.orientation == Configuration.ORIENTATION_LANDSCAPE){
 //
@@ -80,13 +89,64 @@ public class GameActivity extends AppCompatActivity {
 //
 //            FragmentTwo fragmentTwo = new FragmentTwo();
 //
+        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.toxicity_radio_group);
+
+        radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener()
+        {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // checkedId is the RadioButton selected
+                FragmentTwo fragmentTwo = new FragmentTwo();
+                switch(checkedId) {
+
+
+                    case R.id.toxic_radio_btn:
+                        // switch to fragment 1
+
+                        fragmentTransaction.replace(android.R.id.content,
+                                fragmentTwo);
+
+                        fragmentTransaction.commit();
+
+                        break;
+
+                    case R.id.somewhattoxic_radio_btn:
+//                       FragmentTwo fragmentTwo = new FragmentTwo();
+                        fragmentTransaction.replace(android.R.id.content,
+                                fragmentTwo);
+
+                        fragmentTransaction.commit();
+                        // Fragment 2
+
+                        break;
+                    case R.id.nottoxic_radio_btn:
+
+                        fragmentTransaction.replace(android.R.id.content,
+                                fragmentTwo);
+
+                        fragmentTransaction.commit();
+                        // Fragment 3
+
+                        break;
+                    default:
+
+                        FragmentOne fragmentOne = new FragmentOne();
+
+                        fragmentTransaction.replace(android.R.id.content,
+                                fragmentOne);
+                        fragmentTransaction.commit();
+
+                        break;
+
+                }
+            }
+        });
 //            fragmentTransaction.replace(android.R.id.content,
 //                    fragmentTwo);
 //
 //        }
 
         // Schedule for the replacement of the Fragment as soon as possible
-        fragmentTransaction.commit();
+//        fragmentTransaction.commit();
 
         // setContentView(R.layout.activity_my);
     }
@@ -98,16 +158,22 @@ public class GameActivity extends AppCompatActivity {
         String toxicityLevel;
         if(selectedId == R.id.toxic_radio_btn)
             toxicityLevel = "toxic";
+        FragmentManager fragmentManager = getFragmentManager();
+
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        FragmentTwo fragmentTwo = new FragmentTwo();
+
+        fragmentTransaction.replace(android.R.id.content,
+                fragmentTwo);
+        fragmentTransaction.commit();
+
         if(selectedId == R.id.nottoxic_radio_btn)
             toxicityLevel = "nottoxic";
         else
             toxicityLevel = "somewhattoxic";
 
-//        registerUser(signupInputName.getText().toString(),
-//                signupInputEmail.getText().toString(),
-//                signupInputPassword.getText().toString(),
-//                gender,
-//                signupInputAge.getText().toString());
+
     }
 
 
